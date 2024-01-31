@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "AutoTrader.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AutoTrader.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AutoTrader.Model.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutoTrader.Model/1.0.0": {
+      "type": "project",
+      "path": "../AutoTrader.Model/AutoTrader.Model.csproj",
+      "msbuildProject": "../AutoTrader.Model/AutoTrader.Model.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "AutoTrader.Model >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/harislikic/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
+      "projectName": "AutoTrader.Services",
+      "projectPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
+      "packagesPath": "/Users/harislikic/.nuget/packages/",
+      "outputPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/harislikic/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj": {
+              "projectPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

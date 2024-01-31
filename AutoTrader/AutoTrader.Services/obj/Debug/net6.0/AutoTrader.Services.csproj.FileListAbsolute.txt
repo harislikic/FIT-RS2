@@ -1,0 +1,15 @@
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.csproj.AssemblyReference.cache
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.AssemblyInfoInputs.cache
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.AssemblyInfo.cs
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.csproj.CoreCompileInputs.cache
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/bin/Debug/net6.0/AutoTrader.Services.deps.json
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/bin/Debug/net6.0/AutoTrader.Services.dll
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/bin/Debug/net6.0/AutoTrader.Services.pdb
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/bin/Debug/net6.0/AutoTrader.Model.dll
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/bin/Debug/net6.0/AutoTrader.Model.pdb
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.csproj.CopyComplete
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.dll
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/refint/AutoTrader.Services.dll
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/AutoTrader.Services.pdb
+/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/Debug/net6.0/ref/AutoTrader.Services.dll
