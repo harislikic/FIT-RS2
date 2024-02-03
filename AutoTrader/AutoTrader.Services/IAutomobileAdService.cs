@@ -4,9 +4,9 @@ using AutoTrader.Model;
 
 namespace AutoTrader.Services
 {
-	public interface IItemService
-	{
+	public interface IAutomobileAdService
+    {
 
-		IList<Item> Get();
+		IList<AutomobileAd> Get();
     }
 }
