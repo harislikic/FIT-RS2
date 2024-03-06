@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoTrader.Services.Database;
+using static AutoTrader.Services.Database.AdditionalEquipment;
 
 namespace AutoTrader.Model
 {
@@ -13,7 +14,7 @@ namespace AutoTrader.Model
         public string DateOFadd { get; set; }
         public int ViewsCount { get; set; }
         public string YearOfManufacture { get; set; }
-        public string Mileage { get; set; }
+   
         public bool Registered { get; set; }
         public DateTime? RegistrationExpirationDate { get; set; }
         public bool IsActive { get; set; }
@@ -23,7 +24,10 @@ namespace AutoTrader.Model
 
 
         public List<AdImage> AdImages { get; set; }
-        public List<AdditionalEquipment> AdditionalEquipment { get; set; }
+
+        public int AdditionalEquipmentId { get; set; }
+        public AdditionalEquipment AdditionalEquipment { get; set; }
+
         public List<Comment> Comments { get; set; }
 
         public int UserId { get; set; }
@@ -44,8 +48,12 @@ namespace AutoTrader.Model
         public int CarModelId { get; set; }
         public CarModel CarModel { get; set; }
 
+
         public int CarCategoryId { get; set; }
         public CarCategory CarCategory { get; set; }
+
+        public int MaintenanceServiceId { get; set; }
+        public MaintenanceServie MaintenanceService { get; set; }
 
     }
 }
