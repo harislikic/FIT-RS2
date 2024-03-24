@@ -1,12 +1,13 @@
 ﻿using System;
 using AutoMapper;
+using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
 using AutoTrader.Services.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class CarCategoryService : BaseService<Model.CarCategory, CarCategory, CarCategorySearchObjects>, ICarCategoryService
+    public class CarCategoryService : BaseService<Model.CarCategory, CarCategory, CarCategorySearchObjects, CarCategoryUpdateRequest, CarCategoryInsertRequest>, ICarCategoryService
     {
         public CarCategoryService(AutoTraderContext context, IMapper mapper) : base(context, mapper)
         {
@@ -25,7 +26,7 @@ namespace AutoTrader.Services
             {
                 query = query.Where(x => x.Name.Contains(search.FTS));
             }
-       
+
 
             return base.AddFilter(query, search);
         }

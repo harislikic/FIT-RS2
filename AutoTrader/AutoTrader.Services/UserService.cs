@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services.Migrations
 {
-	public class UserService : BaseService<Model.User,User,UserSearchObject>, IUserService
-	{
+    public class UserService : BaseService<Model.User, User, UserSearchObject, UsersUpdateRequest ,UsersInsertRequests>, IUserService
+    {
 
 
         public UserService(AutoTraderContext context, IMapper mapper) : base(context, mapper)
@@ -35,6 +35,6 @@ namespace AutoTrader.Services.Migrations
 
             return base.AddFilter(query, search);
         }
-    			
-	}
+
+    }
 }

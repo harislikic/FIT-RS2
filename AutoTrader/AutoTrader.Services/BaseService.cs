@@ -1,16 +1,19 @@
 ﻿using System;
 using AutoMapper;
 using AutoTrader.Model;
+using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
 using AutoTrader.Services.Database;
+using AutoTrader.Services.PasswordHash;
+using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where TDb : class where T : class where TSearch : BaseSearchObject
+    public class BaseService<T, TDb, TSearch, TUpdate , TInsert> : IService<T, TSearch, TUpdate?, TInsert> where TDb : class where T : class where TSearch : BaseSearchObject
     {
 
-       protected AutoTraderContext _context;
+        protected AutoTraderContext _context;
 
         public IMapper _mapper { get; set; }
 
@@ -68,5 +71,35 @@ namespace AutoTrader.Services
             return _mapper.Map<T>(entity);
         }
 
-}
+        public virtual async Task<T> UpdateById(int id, TUpdate request)
+        {
+            var entity = await _context.Set<TDb>().FindAsync(id);
+            if (entity == null)
+            {
+
+                return null;
+            }
+            _mapper.Map(request, entity);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<T>(entity);
+        }
+
+        public virtual async Task<T> Insert(TInsert request)
+        {
+            var entity = _mapper.Map<TDb>(request);
+            if (entity is Database.User user && request is UsersInsertRequests userRequest)
+            {
+                var (hash, salt) = PasswordHasher.HashPassword(userRequest.Password);
+                user.PasswordHash = hash;
+                user.PasswordSalt = salt;
+            }
+            _context.Set<TDb>().Add(entity);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<T>(entity);
+        }
+
+
+
+
+    }
 }

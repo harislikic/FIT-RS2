@@ -20,6 +20,7 @@ namespace AutoTrader.Services.Database
         public int CityId { get; set; }
         public City City { get; set; }
     }
+
 }
 
 

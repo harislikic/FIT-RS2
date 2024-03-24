@@ -1,9 +1,10 @@
 ﻿using System;
 using AutoTrader.Model;
+using AutoTrader.Model.Requests;
 
 namespace AutoTrader.Services
 {
-	public interface IService<T, Tsearch> where Tsearch : class
+	public interface IService<T, Tsearch, TUpdate, TInsert> where Tsearch : class
 	{
 		Task<PagedResult<T>> Get(Tsearch search = null);
 
@@ -11,6 +12,11 @@ namespace AutoTrader.Services
 
         Task<T> DeleteById(int id);
 
+        Task<T> UpdateById(int id, TUpdate request);
+
+        Task<T> Insert(TInsert request);
+
     }
+
 }
 

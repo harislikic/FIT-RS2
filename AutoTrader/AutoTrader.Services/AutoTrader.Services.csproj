@@ -11,9 +11,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Database\" />
+    <None Remove="PasswordHash\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
+    <Folder Include="PasswordHash\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />

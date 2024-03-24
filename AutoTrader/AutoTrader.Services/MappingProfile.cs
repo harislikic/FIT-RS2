@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using AutoTrader.Model.Requests;
 
 namespace AutoTrader.Services
 {
@@ -8,11 +9,14 @@ namespace AutoTrader.Services
         public MappingProfile()
         {
             CreateMap<Database.User, Model.User>();
-            CreateMap<Model.Requests.UsersInsertRequests, Database.User>();
-            CreateMap<Model.Requests.UsersUpdateRequest, Database.User>();
+            CreateMap<UsersInsertRequests, Database.User>();
+            CreateMap<UsersUpdateRequest, Database.User>();
 
             CreateMap<Database.Comment, Model.Comment>();
+
             CreateMap<Database.CarCategory, Model.CarCategory>();
+            CreateMap<CarCategoryUpdateRequest,Database.CarCategory>();
+            CreateMap<CarCategoryInsertRequest, Database.CarCategory>();
         }
 	}
 }
