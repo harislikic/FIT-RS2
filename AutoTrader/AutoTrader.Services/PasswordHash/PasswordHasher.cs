@@ -27,7 +27,5 @@ namespace AutoTrader.Services.PasswordHash
             return (hashString, saltString);
         }
     }
-
-
 }
 

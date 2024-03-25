@@ -4,13 +4,15 @@ using AutoTrader.Model;
 using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
 using AutoTrader.Services.Database;
+using AutoTrader.Services.Helpers;
 using AutoTrader.Services.PasswordHash;
 using Azure.Core;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class BaseService<T, TDb, TSearch, TUpdate , TInsert> : IService<T, TSearch, TUpdate?, TInsert> where TDb : class where T : class where TSearch : BaseSearchObject
+    public class BaseService<T, TDb, TSearch, TUpdate, TInsert> : IService<T, TSearch, TUpdate?, TInsert> where TDb : class where T : class where TSearch : BaseSearchObject
     {
 
         protected AutoTraderContext _context;
@@ -89,7 +91,9 @@ namespace AutoTrader.Services
             var entity = _mapper.Map<TDb>(request);
             if (entity is Database.User user && request is UsersInsertRequests userRequest)
             {
-                var (hash, salt) = PasswordHasher.HashPassword(userRequest.Password);
+                //var (hash, salt) = PasswordHasher.HashPassword(userRequest.Password);
+                var salt = PasswordHelper.GenerateSalt();
+                var hash = PasswordHelper.GenerateHash(salt, userRequest.Password);
                 user.PasswordHash = hash;
                 user.PasswordSalt = salt;
             }
@@ -97,9 +101,6 @@ namespace AutoTrader.Services
             await _context.SaveChangesAsync();
             return _mapper.Map<T>(entity);
         }
-
-
-
 
     }
 }
