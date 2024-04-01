@@ -7,12 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class CarCategoryService : BaseService<Model.CarCategory, CarCategory, CarCategorySearchObjects, CarCategoryUpdateRequest, CarCategoryInsertRequest>, ICarCategoryService
+    public class CarCategoryService : BaseCRUDService<Model.CarCategory, CarCategory, CarCategorySearchObjects, CarCategoryInsertRequest , CarCategoryUpdateRequest>, ICarCategoryService
     {
         public CarCategoryService(AutoTraderContext context, IMapper mapper) : base(context, mapper)
         {
 
         }
+
 
         public override IQueryable<CarCategory> AddFilter(IQueryable<CarCategory> query, CarCategorySearchObjects? search = null)
         {

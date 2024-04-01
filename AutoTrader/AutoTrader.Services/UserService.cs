@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services.Migrations
 {
-    public class UserService : BaseService<Model.User, User, UserSearchObject, UsersUpdateRequest, UsersInsertRequests>, IUserService
+    public class UserService : BaseCRUDService<Model.User, User, UserSearchObject, UsersInsertRequests, UsersUpdateRequest>, IUserService
     {
 
 
@@ -42,7 +42,6 @@ namespace AutoTrader.Services.Migrations
 
         public override IQueryable<User> AddFilter(IQueryable<User> query, UserSearchObject? search = null)
         {
-
             if (!string.IsNullOrWhiteSpace(search?.FirstName))
             {
                 query = query.Where(x => x.FirstName.StartsWith(search.FirstName));
@@ -50,13 +49,13 @@ namespace AutoTrader.Services.Migrations
 
             if (!string.IsNullOrWhiteSpace(search?.FTS))
             {
-                query = query.Where(x => x.UserName.Contains(search.FTS));
+                query = query.Where(x => x.UserName.Contains(search.FTS)
+                                    || x.FirstName.Contains(search.FTS)
+                                    || x.LastName.Contains(search.FTS));
             }
-
-
             return base.AddFilter(query, search);
         }
 
-
     }
 }
+

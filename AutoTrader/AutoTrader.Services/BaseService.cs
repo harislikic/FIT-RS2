@@ -12,8 +12,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class BaseService<T, TDb, TSearch, TUpdate, TInsert> : IService<T, TSearch, TUpdate?, TInsert> where TDb : class where T : class where TSearch : BaseSearchObject
+    public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where TDb : class where T : class where TSearch : BaseSearchObject
     {
+
 
         protected AutoTraderContext _context;
 
@@ -33,6 +34,8 @@ namespace AutoTrader.Services
 
             query = AddFilter(query, search);
 
+
+
             result.TotalElements = await query.CountAsync();
 
             if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
@@ -47,10 +50,12 @@ namespace AutoTrader.Services
             return result;
         }
 
+
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch? search = null)
         {
             return query;
         }
+
 
         public virtual async Task<T> GetById(int id)
         {
@@ -59,48 +64,22 @@ namespace AutoTrader.Services
             return _mapper.Map<T>(entity);
         }
 
-        public virtual async Task<T> DeleteById(int id)
-        {
-            var entity = await _context.Set<TDb>().FindAsync(id);
-            if (entity == null)
-            {
-                return null;
-            }
+        //public virtual async Task<T> Delete(int id)
+        //{
+        //    var entity = await _context.Set<TDb>().FindAsync(id);
+        //    if (entity == null)
+        //    {
+        //        return null;
+        //    }
 
-            _context.Set<TDb>().Remove(entity);
-            await _context.SaveChangesAsync();
+        //    _context.Set<TDb>().Remove(entity);
+        //    await _context.SaveChangesAsync();
 
-            return _mapper.Map<T>(entity);
-        }
+        //    return _mapper.Map<T>(entity);
+        //}
 
-        public virtual async Task<T> UpdateById(int id, TUpdate request)
-        {
-            var entity = await _context.Set<TDb>().FindAsync(id);
-            if (entity == null)
-            {
 
-                return null;
-            }
-            _mapper.Map(request, entity);
-            await _context.SaveChangesAsync();
-            return _mapper.Map<T>(entity);
-        }
 
-        public virtual async Task<T> Insert(TInsert request)
-        {
-            var entity = _mapper.Map<TDb>(request);
-            if (entity is Database.User user && request is UsersInsertRequests userRequest)
-            {
-                //var (hash, salt) = PasswordHasher.HashPassword(userRequest.Password);
-                var salt = PasswordHelper.GenerateSalt();
-                var hash = PasswordHelper.GenerateHash(salt, userRequest.Password);
-                user.PasswordHash = hash;
-                user.PasswordSalt = salt;
-            }
-            _context.Set<TDb>().Add(entity);
-            await _context.SaveChangesAsync();
-            return _mapper.Map<T>(entity);
-        }
 
     }
 }

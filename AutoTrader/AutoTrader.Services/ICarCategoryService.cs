@@ -4,10 +4,13 @@ using AutoTrader.Model.SearchObjects;
 
 namespace AutoTrader.Services
 {
-	public interface  ICarCategoryService : IService<Model.CarCategory, CarCategorySearchObjects, CarCategoryUpdateRequest, CarCategoryInsertRequest>
+	public interface  ICarCategoryService : ICRUDService<Model.CarCategory, CarCategorySearchObjects, CarCategoryInsertRequest ,CarCategoryUpdateRequest>
 	{
 
     }
 }
 
- 
+
+
+
+

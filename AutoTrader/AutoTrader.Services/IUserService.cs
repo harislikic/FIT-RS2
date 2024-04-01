@@ -4,9 +4,10 @@ using AutoTrader.Model.SearchObjects;
 
 namespace AutoTrader.Services
 {
-    public interface IUserService : IService<Model.User, UserSearchObject, UsersUpdateRequest, UsersInsertRequests>
+    public interface IUserService : ICRUDService<Model.User, UserSearchObject,UsersInsertRequests,UsersUpdateRequest>
     {
         Model.User Login(string username, string password);
     }
+
 }
 
