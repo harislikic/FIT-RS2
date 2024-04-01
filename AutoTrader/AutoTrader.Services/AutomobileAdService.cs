@@ -19,37 +19,13 @@ namespace AutoTrader.Services
 
         public override IQueryable<AutomobileAd> AddFilter(IQueryable<AutomobileAd> query, AutomobileAdSearchObject? search = null)
         {
-            if (!string.IsNullOrWhiteSpace(search?.Title))
-            {
-                query = query.Where(x => x.Title.Contains(search.Title));
-            }
-
-            if (search?.PriceFrom != null && search?.PriceTo != null)
-            {
-                query = query.Where(x => x.Price >= search.PriceFrom && x.Price <= search.PriceTo);
-            }
-
-            if (search?.PriceFrom != null)
-            {
-                query = query.Where(x => x.Price >= search.PriceFrom);
-            }
-
-            if (search?.PriceTo != null)
-            {
-                query = query.Where(x => x.Price <= search.PriceTo);
-            }
-
-            if (search?.IsActive != null)
-            {
-                query = query.Where(x => x.IsActive == search.IsActive);
-            }
-
-            if (search?.IsApproved != null)
-            {
-                query = query.Where(x => x.IsApproved == search.IsApproved);
-            }
-
-            return base.AddFilter(query, search);
+            return base.AddFilter(query, search)
+      .Where(x =>
+          (string.IsNullOrWhiteSpace(search.Title) || x.Title.Contains(search.Title)) &&
+          (search.PriceFrom == null || x.Price >= search.PriceFrom) &&
+          (search.PriceTo == null || x.Price <= search.PriceTo) &&
+          (search.IsActive == null || x.IsActive == search.IsActive) &&
+          (search.IsApproved == null || x.IsApproved == search.IsApproved));
         }
 
     }
