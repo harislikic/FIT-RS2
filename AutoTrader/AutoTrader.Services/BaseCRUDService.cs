@@ -23,6 +23,13 @@ namespace AutoTrader.Services
                 user.PasswordHash = hash;
                 user.PasswordSalt = salt;
             }
+
+            if (entity is AutomobileAd && request is AutomobileAdInsertRequest Request)
+            {
+                var automobileAd = entity as AutomobileAd;
+                automobileAd.DateOFadd = DateTime.UtcNow;
+
+            }
             _context.Set<TDb>().Add(entity);
             await _context.SaveChangesAsync();
             return _mapper.Map<T>(entity);

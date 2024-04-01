@@ -12,6 +12,11 @@ namespace AutoTrader.Services
             CreateMap<UsersInsertRequests, Database.User>();
             CreateMap<UsersUpdateRequest, Database.User>();
 
+
+            CreateMap<AutomobileAd, Model.AutomobileAd>();
+            CreateMap<AutomobileAdInsertRequest, AutomobileAd>();
+            CreateMap<AutomobileAdUpdateRequest, AutomobileAd>();
+
             CreateMap<Database.Comment, Model.Comment>();
 
             CreateMap<Database.CarCategory, Model.CarCategory>();

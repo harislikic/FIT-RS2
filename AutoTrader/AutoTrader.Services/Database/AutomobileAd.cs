@@ -1,8 +1,7 @@
 ﻿using System;
 using AutoTrader.Services.Database;
-using static AutoTrader.Services.Database.AdditionalEquipment;
 
-namespace AutoTrader.Model
+namespace AutoTrader.Services
 {
 	public partial class AutomobileAd
 
@@ -10,9 +9,11 @@ namespace AutoTrader.Model
 		public int Id { get; set;}
 		public string Title { get; set; }
         public string Description { get; set; }
-        public string Price { get; set; }
-        public string DateOFadd { get; set; }
+        public double? Price { get; set; }
+
+        public DateTime? DateOFadd { get; set; }
         public int ViewsCount { get; set; }
+
         public string YearOfManufacture { get; set; }
    
         public bool Registered { get; set; }

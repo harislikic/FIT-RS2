@@ -61,25 +61,15 @@ namespace AutoTrader.Services
         {
             var entity = await _context.Set<TDb>().FindAsync(id);
 
+            if (entity is AutomobileAd automobileAd)
+            {
+                automobileAd.ViewsCount++;
+                await _context.SaveChangesAsync();
+            }
+
+
             return _mapper.Map<T>(entity);
         }
-
-        //public virtual async Task<T> Delete(int id)
-        //{
-        //    var entity = await _context.Set<TDb>().FindAsync(id);
-        //    if (entity == null)
-        //    {
-        //        return null;
-        //    }
-
-        //    _context.Set<TDb>().Remove(entity);
-        //    await _context.SaveChangesAsync();
-
-        //    return _mapper.Map<T>(entity);
-        //}
-
-
-
 
     }
 }

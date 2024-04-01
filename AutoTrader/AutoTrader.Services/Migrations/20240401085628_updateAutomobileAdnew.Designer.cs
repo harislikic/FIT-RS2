@@ -4,6 +4,7 @@ using AutoTrader.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoTrader.Services.Migrations
 {
     [DbContext(typeof(AutoTraderContext))]
-    partial class AutoTraderContextModelSnapshot : ModelSnapshot
+    [Migration("20240401085628_updateAutomobileAdnew")]
+    partial class updateAutomobileAdnew
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +45,9 @@ namespace AutoTrader.Services.Migrations
                     b.Property<int>("CarModelId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("DateOFadd")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DateOFadd")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -67,8 +71,9 @@ namespace AutoTrader.Services.Migrations
                     b.Property<int>("MaintenanceServiceId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Registered")
                         .HasColumnType("bit");
