@@ -24,7 +24,7 @@ namespace AutoTrader.Services
         public DateTime? FeaturedExpiryDate { get; set; }
 
 
-        public List<AdImage> AdImages { get; set; }
+        public ICollection<AdImage> AdImages { get; set; }
 
         public int AdditionalEquipmentId { get; set; }
         public AdditionalEquipment AdditionalEquipment { get; set; }

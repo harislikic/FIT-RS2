@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qm82bARKsmMrIDwwVEGeRgwO+WwiJU+vXFNf/9P/qvyLqIKYonqwymXOQjadL/5xW6L2eY/+/bQAKKQjoZjSaQ==",
+  "dgSpecHash": "+/XWF8yFQ2BZH2kVUcc7vi8Wha0bHx+WaQApoyQE7QekRAW1sVee8CBeMcX9N9RzvTQNWO8WiP1N8usHuCvNbQ==",
   "success": true,
   "projectFilePath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,7 @@
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.dataprotection.abstractions/2.2.0/microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.hosting.abstractions/2.2.0/microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.hosting.server.abstractions/2.2.0/microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
-    "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.http/2.2.0/microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
+    "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.http/2.2.2/microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.http.extensions/2.2.0/microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

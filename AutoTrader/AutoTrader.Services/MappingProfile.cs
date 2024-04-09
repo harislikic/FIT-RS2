@@ -22,6 +22,11 @@ namespace AutoTrader.Services
             CreateMap<Database.CarCategory, Model.CarCategory>();
             CreateMap<CarCategoryUpdateRequest,Database.CarCategory>();
             CreateMap<CarCategoryInsertRequest, Database.CarCategory>();
+
+
+            CreateMap<Database.CarBrand, Model.CarBrand>();
+            CreateMap<CarBrandUpdateRequest, Database.CarBrand>();
+            CreateMap<CarBrandInsertRequest, Database.CarBrand>();
         }
 	}
 }
