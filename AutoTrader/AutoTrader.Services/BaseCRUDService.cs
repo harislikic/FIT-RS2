@@ -36,22 +36,36 @@ namespace AutoTrader.Services
 
                 if (Request.ImagesFiles != null)
                 {
-                    string folder = "AutomobileAd/Images/";
-                    Request.AdImages = new List<Model.AdImage>();
+                    // string folder = "AutomobileAd/Images/";
+                    var adImages = new List<Model.AdImage>();
 
-                    foreach (var file in Request.ImagesFiles)
+                    foreach (var imagePath in Request.ImagesFiles)
                     {
-                        var images = new Model.AdImage()
+                        var imageName = Path.GetFileName(imagePath);
+                        // var imageUrl = await UploadImage(folder, imagePath);
+                        var adImage = new Model.AdImage
                         {
-                            Name = file.Name,
-                            URL = await UploadImage(folder, file)
+                            Name = imageName,
+                            URL = imagePath
                         };
-                        Request.AdImages.Add(images);
+
+                        adImages.Add(adImage);
                     }
 
+
+                    var databaseAdImages = adImages.Select(image =>
+       new AutoTrader.Services.Database.AdImage
+       {
+           Name = image.Name,
+           URL = image.URL
+       }).ToList();
+
+                    automobileAd.AdImages = databaseAdImages;
                 }
 
             }
+
+
             _context.Set<TDb>().Add(entity);
             await _context.SaveChangesAsync();
             return _mapper.Map<T>(entity);
@@ -96,6 +110,9 @@ namespace AutoTrader.Services
 
             return "/" + folderPath;
         }
+
+
+
 
 
 

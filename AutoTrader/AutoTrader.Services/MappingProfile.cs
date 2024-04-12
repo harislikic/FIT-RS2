@@ -1,6 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using AutoTrader.Model.Requests;
+using AutoTrader.Services.Database;
 
 namespace AutoTrader.Services
 {
@@ -8,30 +9,43 @@ namespace AutoTrader.Services
 	{
         public MappingProfile()
         {
-            CreateMap<Database.User, Model.User>();
-            CreateMap<UsersInsertRequests, Database.User>();
-            CreateMap<UsersUpdateRequest, Database.User>();
+
+            CreateMap<User, Model.User>();
+            CreateMap<UsersInsertRequests,User>();
+            CreateMap<UsersUpdateRequest,User>();
+
+            CreateMap<AdImage, Model.AdImage>();
 
 
-            CreateMap<AutomobileAd, Model.AutomobileAd>();
+            CreateMap<AutomobileAd ,Model.AutomobileAd>();
             CreateMap<AutomobileAdInsertRequest, AutomobileAd>();
             CreateMap<AutomobileAdUpdateRequest, AutomobileAd>();
 
-            CreateMap<Database.Comment, Model.Comment>();
+            CreateMap<Comment, Model.Comment>();
 
-            CreateMap<Database.CarCategory, Model.CarCategory>();
+            CreateMap<CarCategory, Model.CarCategory>();
             CreateMap<CarCategoryUpdateRequest,Database.CarCategory>();
             CreateMap<CarCategoryInsertRequest, Database.CarCategory>();
 
 
-            CreateMap<Database.CarBrand, Model.CarBrand>();
+            CreateMap<CarBrand, Model.CarBrand>();
             CreateMap<CarBrandUpdateRequest, Database.CarBrand>();
             CreateMap<CarBrandInsertRequest, Database.CarBrand>();
 
 
-            CreateMap<Database.AdditionalEquipment, Model.AdditionalEquipment>();
+            CreateMap<AdditionalEquipment, Model.AdditionalEquipment>();
             CreateMap<AdditionalEquipmentInsertRequst, Database.AdditionalEquipment>();
-            CreateMap<AdditionalEquipmentInsertRequst, Database.AdditionalEquipment>();
+
+
+            CreateMap<VehicleCondition, Model.VehicleCondition>();
+            CreateMap<VehicleConditionInsertRequst, Database.VehicleCondition>();
+
+            CreateMap<City, Model.City>();
+            CreateMap<CityRequest, Database.City>();
+
+            CreateMap<Canton, Model.Canton>();
+            CreateMap<CantonRequest, Database.Canton>();
+
         }
 	}
 }

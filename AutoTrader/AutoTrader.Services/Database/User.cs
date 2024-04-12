@@ -21,6 +21,7 @@ namespace AutoTrader.Services.Database
         public City City { get; set; }
     }
 
+
 }
 
 

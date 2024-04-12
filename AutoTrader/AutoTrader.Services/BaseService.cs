@@ -34,8 +34,6 @@ namespace AutoTrader.Services
 
             query = AddFilter(query, search);
 
-
-
             result.TotalElements = await query.CountAsync();
 
             if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
@@ -49,6 +47,8 @@ namespace AutoTrader.Services
             result.Result = tmp;
             return result;
         }
+
+
 
 
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch? search = null)

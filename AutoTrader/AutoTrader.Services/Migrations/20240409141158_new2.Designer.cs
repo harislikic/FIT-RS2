@@ -4,6 +4,7 @@ using AutoTrader.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoTrader.Services.Migrations
 {
     [DbContext(typeof(AutoTraderContext))]
-    partial class AutoTraderContextModelSnapshot : ModelSnapshot
+    [Migration("20240409141158_new2")]
+    partial class new2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,8 +101,6 @@ namespace AutoTrader.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdditionalEquipmentId");
-
                     b.HasIndex("CarBrandId");
 
                     b.HasIndex("CarCategoryId");
@@ -153,11 +154,16 @@ namespace AutoTrader.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdditionalEquipmentId"));
 
+                    b.Property<int?>("AutomobileAdId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AdditionalEquipmentId");
+
+                    b.HasIndex("AutomobileAdId");
 
                     b.ToTable("AdditionalEquipments");
                 });
@@ -457,12 +463,6 @@ namespace AutoTrader.Services.Migrations
 
             modelBuilder.Entity("AutoTrader.Services.AutomobileAd", b =>
                 {
-                    b.HasOne("AutoTrader.Services.Database.AdditionalEquipment", "AdditionalEquipment")
-                        .WithMany()
-                        .HasForeignKey("AdditionalEquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("AutoTrader.Services.Database.CarBrand", "CarBrand")
                         .WithMany()
                         .HasForeignKey("CarBrandId")
@@ -511,8 +511,6 @@ namespace AutoTrader.Services.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AdditionalEquipment");
-
                     b.Navigation("CarBrand");
 
                     b.Navigation("CarCategory");
@@ -541,10 +539,17 @@ namespace AutoTrader.Services.Migrations
                     b.Navigation("AutomobileAd");
                 });
 
+            modelBuilder.Entity("AutoTrader.Services.Database.AdditionalEquipment", b =>
+                {
+                    b.HasOne("AutoTrader.Services.AutomobileAd", null)
+                        .WithMany("AdditionalEquipment")
+                        .HasForeignKey("AutomobileAdId");
+                });
+
             modelBuilder.Entity("AutoTrader.Services.Database.City", b =>
                 {
                     b.HasOne("AutoTrader.Services.Database.Canton", "Canton")
-                        .WithMany("Cities")
+                        .WithMany()
                         .HasForeignKey("CantonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -555,7 +560,7 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.Database.Comment", b =>
                 {
                     b.HasOne("AutoTrader.Services.AutomobileAd", "AutomobileAd")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("AutomobileAdId");
 
                     b.HasOne("AutoTrader.Services.Database.User", "User")
@@ -596,11 +601,10 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.AutomobileAd", b =>
                 {
                     b.Navigation("AdImages");
-                });
 
-            modelBuilder.Entity("AutoTrader.Services.Database.Canton", b =>
-                {
-                    b.Navigation("Cities");
+                    b.Navigation("AdditionalEquipment");
+
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

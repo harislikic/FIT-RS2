@@ -4,6 +4,7 @@ using AutoTrader.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoTrader.Services.Migrations
 {
     [DbContext(typeof(AutoTraderContext))]
-    partial class AutoTraderContextModelSnapshot : ModelSnapshot
+    [Migration("20240409135223_list")]
+    partial class list
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -544,7 +547,7 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.Database.City", b =>
                 {
                     b.HasOne("AutoTrader.Services.Database.Canton", "Canton")
-                        .WithMany("Cities")
+                        .WithMany()
                         .HasForeignKey("CantonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -555,7 +558,7 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.Database.Comment", b =>
                 {
                     b.HasOne("AutoTrader.Services.AutomobileAd", "AutomobileAd")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("AutomobileAdId");
 
                     b.HasOne("AutoTrader.Services.Database.User", "User")
@@ -596,11 +599,8 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.AutomobileAd", b =>
                 {
                     b.Navigation("AdImages");
-                });
 
-            modelBuilder.Entity("AutoTrader.Services.Database.Canton", b =>
-                {
-                    b.Navigation("Cities");
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

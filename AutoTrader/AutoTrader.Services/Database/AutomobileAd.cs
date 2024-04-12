@@ -23,13 +23,10 @@ namespace AutoTrader.Services
         public bool IsFeatured { get; set; } 
         public DateTime? FeaturedExpiryDate { get; set; }
 
-
-        public ICollection<AdImage> AdImages { get; set; }
+        public List<AdImage> AdImages { get; set; }
 
         public int AdditionalEquipmentId { get; set; }
         public AdditionalEquipment AdditionalEquipment { get; set; }
-
-        public List<Comment> Comments { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; }
