@@ -18,11 +18,8 @@ namespace AutoTrader.Services
 
 
             CreateMap<AutomobileAd ,Model.AutomobileAd>();
-
             CreateMap<AutomobileAdInsertRequest, AutomobileAd>();
             CreateMap<AutomobileAdUpdateRequest, AutomobileAd>();
-
-            CreateMap<Comment, Model.Comment>();
 
             CreateMap<CarCategory, Model.CarCategory>();
             CreateMap<CarCategoryUpdateRequest,Database.CarCategory>();
@@ -50,6 +47,11 @@ namespace AutoTrader.Services
 
             CreateMap<Comment, Model.Comment>();
             CreateMap<CommentInsertRequest, Database.Comment>();
+
+
+            CreateMap<Reservation, Model.Reservation>();
+
+            CreateMap<ReservationRequst, Database.Reservation>();
         }
 	}
 }
