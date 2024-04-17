@@ -4,6 +4,7 @@ using AutoTrader.Model;
 using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
 using AutoTrader.Services.Database;
+using AutoTrader.Services.Helpers;
 
 namespace AutoTrader.Services
 {

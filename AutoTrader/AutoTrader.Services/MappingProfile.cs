@@ -18,6 +18,7 @@ namespace AutoTrader.Services
 
 
             CreateMap<AutomobileAd ,Model.AutomobileAd>();
+
             CreateMap<AutomobileAdInsertRequest, AutomobileAd>();
             CreateMap<AutomobileAdUpdateRequest, AutomobileAd>();
 

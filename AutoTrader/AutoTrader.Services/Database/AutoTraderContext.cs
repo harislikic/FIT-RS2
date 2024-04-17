@@ -38,8 +38,6 @@ namespace AutoTrader.Services.Database
 
         public  DbSet<AdImage> AdImages { get; set; }
 
-        public  DbSet<MaintenanceServie> MaintenanceServies { get; set; }
-
         public DbSet<AdditionalEquipment> AdditionalEquipments { get; set; }
 
         public  DbSet<Reservation> Reservations { get; set; }

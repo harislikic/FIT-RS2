@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using AutoMapper;
 using AutoTrader.Model;
 using AutoTrader.Model.Requests;
@@ -41,15 +43,13 @@ namespace AutoTrader.Services
                 query = query.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
             }
 
+
             var list = await query.ToListAsync();
 
             var tmp = _mapper.Map<List<T>>(list);
             result.Result = tmp;
             return result;
         }
-
-
-
 
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch? search = null)
         {

@@ -23,7 +23,13 @@ namespace AutoTrader.Services
         public bool IsFeatured { get; set; } 
         public DateTime? FeaturedExpiryDate { get; set; }
 
-        public List<AdImage> AdImages { get; set; }
+        public DateTime Last_Small_Service { get; set; }
+
+        public DateTime Last_Big_Service { get; set; }
+
+        public string Milage { get; set; }
+
+        public ICollection<AdImage>? Images { get; set; }
 
         public int AdditionalEquipmentId { get; set; }
         public AdditionalEquipment AdditionalEquipment { get; set; }
@@ -49,9 +55,6 @@ namespace AutoTrader.Services
 
         public int CarCategoryId { get; set; }
         public CarCategory CarCategory { get; set; }
-
-        public int MaintenanceServiceId { get; set; }
-        public MaintenanceServie MaintenanceService { get; set; }
 
     }
 }

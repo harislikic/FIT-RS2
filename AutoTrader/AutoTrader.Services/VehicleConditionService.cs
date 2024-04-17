@@ -3,6 +3,7 @@ using AutoMapper;
 using AutoTrader.Model;
 using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
+using AutoTrader.Services.Helpers;
 
 namespace AutoTrader.Services
 {

@@ -16,10 +16,12 @@ namespace AutoTrader.Services.Database
         public bool IsAdmin { get; set; }
         public DateTime DateOfBirth { get; set; }
         public byte[]? ProfilePicture { get; set; }
-
+        public string? ProfilePictureUrl { get; set; }
         public int CityId { get; set; }
         public City City { get; set; }
     }
+
+
 
 
 }

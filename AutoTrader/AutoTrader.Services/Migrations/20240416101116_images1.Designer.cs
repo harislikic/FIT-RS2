@@ -4,6 +4,7 @@ using AutoTrader.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoTrader.Services.Migrations
 {
     [DbContext(typeof(AutoTraderContext))]
-    partial class AutoTraderContextModelSnapshot : ModelSnapshot
+    [Migration("20240416101116_images1")]
+    partial class images1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,15 +67,8 @@ namespace AutoTrader.Services.Migrations
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("Last_Big_Service")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Last_Small_Service")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Milage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MaintenanceServiceId")
+                        .HasColumnType("int");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float");
@@ -115,6 +111,8 @@ namespace AutoTrader.Services.Migrations
 
                     b.HasIndex("FuelTypeId");
 
+                    b.HasIndex("MaintenanceServiceId");
+
                     b.HasIndex("TransmissionTypeId");
 
                     b.HasIndex("UserId");
@@ -134,6 +132,14 @@ namespace AutoTrader.Services.Migrations
 
                     b.Property<int>("AutomobileAdId")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Bytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("URL")
                         .IsRequired()
@@ -304,6 +310,29 @@ namespace AutoTrader.Services.Migrations
                     b.ToTable("FuelTypes");
                 });
 
+            modelBuilder.Entity("AutoTrader.Services.Database.MaintenanceServie", b =>
+                {
+                    b.Property<int>("MaintenanceServieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaintenanceServieId"));
+
+                    b.Property<DateTime>("Last_Big_Service")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Last_Small_Service")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Milage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MaintenanceServieId");
+
+                    b.ToTable("MaintenanceServies");
+                });
+
             modelBuilder.Entity("AutoTrader.Services.Database.Reservation", b =>
                 {
                     b.Property<int>("Id")
@@ -468,6 +497,12 @@ namespace AutoTrader.Services.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AutoTrader.Services.Database.MaintenanceServie", "MaintenanceService")
+                        .WithMany()
+                        .HasForeignKey("MaintenanceServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("AutoTrader.Services.Database.TransmissionType", "TransmissionType")
                         .WithMany()
                         .HasForeignKey("TransmissionTypeId")
@@ -496,6 +531,8 @@ namespace AutoTrader.Services.Migrations
 
                     b.Navigation("FuelType");
 
+                    b.Navigation("MaintenanceService");
+
                     b.Navigation("TransmissionType");
 
                     b.Navigation("User");
@@ -506,7 +543,7 @@ namespace AutoTrader.Services.Migrations
             modelBuilder.Entity("AutoTrader.Services.Database.AdImage", b =>
                 {
                     b.HasOne("AutoTrader.Services.AutomobileAd", "AutomobileAd")
-                        .WithMany("Images")
+                        .WithMany("AdImages")
                         .HasForeignKey("AutomobileAdId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -568,7 +605,7 @@ namespace AutoTrader.Services.Migrations
 
             modelBuilder.Entity("AutoTrader.Services.AutomobileAd", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("AdImages");
                 });
 
             modelBuilder.Entity("AutoTrader.Services.Database.Canton", b =>
