@@ -50,8 +50,10 @@ namespace AutoTrader.Services
 
 
             CreateMap<Reservation, Model.Reservation>();
-
             CreateMap<ReservationRequst, Database.Reservation>();
+
+            CreateMap<FuelType, Model.FuelType>();
+            CreateMap<FuelTypeRequest, Database.FuelType>();
         }
 	}
 }

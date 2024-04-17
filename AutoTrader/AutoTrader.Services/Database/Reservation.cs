@@ -19,5 +19,8 @@ namespace AutoTrader.Services.Database
         public AutomobileAd AutomobileAd { get; set; }
 
     }
+
+
+
 }
 
