@@ -47,6 +47,9 @@ namespace AutoTrader.Services
             CreateMap<Canton, Model.Canton>();
             CreateMap<CantonRequest, Database.Canton>();
 
+
+            CreateMap<Comment, Model.Comment>();
+            CreateMap<CommentInsertRequest, Database.Comment>();
         }
 	}
 }
