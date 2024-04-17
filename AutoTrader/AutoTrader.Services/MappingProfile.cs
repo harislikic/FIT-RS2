@@ -54,6 +54,9 @@ namespace AutoTrader.Services
 
             CreateMap<FuelType, Model.FuelType>();
             CreateMap<FuelTypeRequest, Database.FuelType>();
+
+            CreateMap<TransmissionType, Model.TransmissionType>();
+            CreateMap<TransmissionTypeRequst, Database.TransmissionType>();
         }
 	}
 }
