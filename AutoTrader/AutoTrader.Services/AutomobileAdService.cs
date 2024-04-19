@@ -5,6 +5,7 @@ using AutoTrader.Model.Requests;
 using AutoTrader.Model.SearchObjects;
 using AutoTrader.Services.Database;
 using AutoTrader.Services.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
@@ -27,6 +28,20 @@ namespace AutoTrader.Services
           (search.PriceTo == null || x.Price <= search.PriceTo) &&
           (search.IsActive == null || x.IsActive == search.IsActive) &&
           (search.IsApproved == null || x.IsApproved == search.IsApproved));
+        }
+
+        public override IQueryable<AutomobileAd> AddInclude(IQueryable<AutomobileAd> query, AutomobileAdSearchObject serach = null)
+        {
+
+            var filtered = query
+                .Include(c => c.TransmissionType)
+                .Include(c => c.TransmissionType)
+                .Include(x => x.VehicleCondition)
+                .Include(x => x.CarBrand)
+                .Include(x => x.CarModel)
+                .Include(x => x.CarCategory)
+                .Include(x => x.User);
+            return filtered;
         }
 
     }

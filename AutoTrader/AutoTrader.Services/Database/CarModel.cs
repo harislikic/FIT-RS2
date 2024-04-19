@@ -5,6 +5,7 @@ namespace AutoTrader.Services.Database
 	{
         public int CarModelId { get; set; }
         public string ModelName { get; set; }
+
     }
 }
 

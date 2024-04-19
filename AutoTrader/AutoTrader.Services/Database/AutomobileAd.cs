@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using AutoTrader.Services.Database;
 
 namespace AutoTrader.Services

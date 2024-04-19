@@ -43,6 +43,11 @@ namespace AutoTrader.Services
                     user.ProfilePictureUrl = userRequest.ProfilePictureUrl;
                 }
 
+                if (userRequest.ProfilePictureUrl == null)
+                {
+                    user.ProfilePictureUrl = "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712880000&semt=ais";
+                }
+
                 var salt = PasswordHelper.GenerateSalt();
                 var hash = PasswordHelper.GenerateHash(salt, userRequest.Password);
                 user.PasswordHash = hash;

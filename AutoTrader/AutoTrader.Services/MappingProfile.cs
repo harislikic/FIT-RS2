@@ -17,7 +17,7 @@ namespace AutoTrader.Services
             CreateMap<AdImage, Model.AdImage>();
 
 
-            CreateMap<AutomobileAd ,Model.AutomobileAd>();
+            CreateMap<AutomobileAd, Model.AutomobileAd>();
             CreateMap<AutomobileAdInsertRequest, AutomobileAd>();
             CreateMap<AutomobileAdUpdateRequest, AutomobileAd>();
 
@@ -30,6 +30,7 @@ namespace AutoTrader.Services
             CreateMap<CarBrandUpdateRequest, Database.CarBrand>();
             CreateMap<CarBrandInsertRequest, Database.CarBrand>();
 
+            CreateMap<AutoTrader.Services.Database.CarModel, AutoTrader.Model.CarModel>();
 
             CreateMap<AdditionalEquipment, Model.AdditionalEquipment>();
             CreateMap<AdditionalEquipmentInsertRequst, Database.AdditionalEquipment>();
@@ -60,4 +61,6 @@ namespace AutoTrader.Services
         }
 	}
 }
+
+
 

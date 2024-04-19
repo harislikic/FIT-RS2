@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9vgegaLN8EbcsUlGwwonDeznSa8tHdtRbBiFrRE46DWt+YO7yjWw/xKWgmegOArnUn5FNCsCk91Eu2oYJXWenQ==",
+  "dgSpecHash": "WiXVHfEvxByiSwSyM6omXMiC0kOtb3ZFd2u50HbtsIF6vSU/qjn7+e39D7RUV62B6ojSPojqZ0FRH/XE4+gang==",
   "success": true,
-  "projectFilePath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
+  "projectFilePath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
   "expectedPackageFiles": [
     "/Users/harislikic/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/harislikic/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

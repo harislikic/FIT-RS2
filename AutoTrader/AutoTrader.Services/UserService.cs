@@ -56,6 +56,13 @@ namespace AutoTrader.Services.Migrations
             return base.AddFilter(query, search);
         }
 
+        public override IQueryable<Database.User> AddInclude(IQueryable<Database.User> query ,UserSearchObject serach = null)
+        {
+      
+            var filtered = query.Include(c => c.City);
+            return filtered;
+        }
+
     }
 }
 

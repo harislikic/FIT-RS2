@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj": {}
+    "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj": {}
   },
   "projects": {
-    "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj": {
+    "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj",
+        "projectUniqueName": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj",
         "projectName": "AutoTrader.Model",
-        "projectPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj",
+        "projectPath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj",
         "packagesPath": "/Users/harislikic/.nuget/packages/",
-        "outputPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/obj/",
+        "outputPath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/harislikic/.nuget/NuGet/NuGet.Config"
@@ -81,14 +81,14 @@
         }
       }
     },
-    "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj": {
+    "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
+        "projectUniqueName": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
         "projectName": "AutoTrader.Services",
-        "projectPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
+        "projectPath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/AutoTrader.Services.csproj",
         "packagesPath": "/Users/harislikic/.nuget/packages/",
-        "outputPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/",
+        "outputPath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Services/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/harislikic/.nuget/NuGet/NuGet.Config"
@@ -103,8 +103,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj": {
-                "projectPath": "/Users/harislikic/Desktop/RS2-seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj"
+              "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj": {
+                "projectPath": "/Users/harislikic/Desktop/RS2- seminarski/FIT-RS2/AutoTrader/AutoTrader.Model/AutoTrader.Model.csproj"
               }
             }
           }

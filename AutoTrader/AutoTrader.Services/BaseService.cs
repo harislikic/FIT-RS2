@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoTrader.Services
 {
-    public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where TDb : class where T : class where TSearch : BaseSearchObject
+    public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where T : class where TDb : class where TSearch : BaseSearchObject
     {
 
 
@@ -34,6 +34,8 @@ namespace AutoTrader.Services
 
             PagedResult<T> result = new PagedResult<T>();
 
+            query = AddInclude(query, search);
+
             query = AddFilter(query, search);
 
             result.TotalElements = await query.CountAsync();
@@ -51,7 +53,14 @@ namespace AutoTrader.Services
             return result;
         }
 
+
+
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch? search = null)
+        {
+            return query;
+        }
+
+        public virtual IQueryable<TDb> AddInclude(IQueryable<TDb> query, TSearch search = null)
         {
             return query;
         }
