@@ -68,7 +68,7 @@ namespace AutoTrader.Services
                     foreach (var imageFile in Request.Images)
                     {
 
-                        string imageUrl = await SaveImage(imageFile);
+                        string imageUrl = await ConvertImageToBase64(imageFile);
 
 
                         var adImage = new Services.Database.AdImage
@@ -120,22 +120,33 @@ namespace AutoTrader.Services
         }
 
 
-
-        private async Task<string> SaveImage(IFormFile imageFile)
+        public async Task<string> ConvertImageToBase64(IFormFile imageFile)
         {
-            var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(imageFile.FileName)}";
-            var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
-            var filePath = Path.Combine(uploadFolder, uniqueFileName);
-
-            Directory.CreateDirectory(uploadFolder);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            using (var memoryStream = new MemoryStream())
             {
-                await imageFile.CopyToAsync(stream);
+                await imageFile.CopyToAsync(memoryStream);
+                byte[] bytes = memoryStream.ToArray();
+                string base64String = Convert.ToBase64String(bytes);
+                return base64String;
             }
-
-            return $"/Images/{uniqueFileName}";
         }
+
+        //private async Task<string> SaveImage(IFormFile imageFile)
+        //{
+        //    var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(imageFile.FileName)}";
+        //    var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
+        //    var filePath = Path.Combine(uploadFolder, uniqueFileName);
+
+        //    Directory.CreateDirectory(uploadFolder);
+
+        //    using (var stream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await imageFile.CopyToAsync(stream);
+        //    }
+
+        //    return $"/Images/{uniqueFileName}";
+        //}
+
 
 
         private async Task<byte[]> ProcessProfilePicture(string profilePictureUrl)
